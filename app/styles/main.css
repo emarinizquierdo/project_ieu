@@ -1,0 +1,96 @@
+html, body {
+    height:100%;
+    margin:0;
+    padding:0;
+}
+/* Everything but the jumbotron gets side spacing for mobile first views */
+
+.header, .marketing, .footer {}
+/* Custom page header */
+
+.header {} .header #main-menu {
+    background-color: #222222;
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+    margin: 0px;
+}
+
+.header {} .header #main-menu li {
+  height: 104px;
+  border-bottom: 1px solid #212121;
+}
+
+.header {} .header #main-menu li .menu-icon {
+  display: block;
+}
+
+/* Custom page footer */
+
+.container {} .container .background-image {
+    max-width: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: -1
+}
+
+.container #breadcrumb {
+  color: #ffffff;
+    list-style-type: none;
+    text-align: center;
+    width: 100%;
+}
+.container #breadcrumb ul {
+overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+.container #breadcrumb li {
+  list-style: none;
+    float: left;
+    text-align: center;
+    width: 16.6667%; /* fallback for non-calc() browsers */
+    width: calc((100% - 96px)/ 5);
+    box-sizing: border-box;
+}
+
+.footer {
+    padding-top: 19px;
+    color: #777;
+}
+/* Responsive: Portrait tablets and up */
+
+@media screen and (min-width: 768px) {
+    .header {} .header #app-title {
+        width: 100%;
+        background-color: #ffffff;
+        opacity: 0.83;
+        box-sizing: padding-box;
+        width: calc(100% - 96px);
+        float: left;
+        height: 58px;
+    }
+    .header #main-menu {
+        float: left;
+        min-width: 96px;
+        max-width: 96px;
+    }
+    .container {
+        float: left;
+        width: calc(100% - 96px);
+    }
+    /* Remove the padding we set earlier */
+    
+    .header, .marketing, .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /* Space out the masthead */
+    /* Remove the bottom border on the jumbotron for visual effect */
+    
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
