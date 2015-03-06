@@ -1,8 +1,8 @@
 <nav id="breadcrumb">
-<ul>
-    <li ng-repeat="item in menuList">
-    	<a ng-href="{{item.path}}">{{ item.name }}</a>
-    	<span class="underline"></span>
-    </li>
-</ul>
+    <ul>
+        <li ng-repeat="item in menuList" ng-class="{'active' : (path == item.path)}">
+            <div class="title" ng-show="path == item.path">{{ item.name }}</div><div class="pusher" ng-show="path != item.path"></div>
+            <span class="underline"></span>
+        </li>
+    </ul>
 </nav>

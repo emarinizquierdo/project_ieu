@@ -10,6 +10,10 @@
 angular.module('projectIeuApp')
   .controller('WhoCtrl', ['$scope', 'Data', function ($scope, Data) {
     
-    $scope.whoInfo = Data.menu[0];
+    $scope.data = Data.menu[0];
+
+$scope.$on("$routeChangeSuccess", function (scope, next, current) {
+        $scope.transitionState = "active"
+    });
 
   }]);

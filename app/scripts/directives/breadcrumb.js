@@ -11,9 +11,12 @@ angular.module('projectIeuApp')
         return {
             templateUrl: 'partials/breadcrumb.html',
             restrict: 'A',
-            controller: ['$scope', 'Data', function($scope, Data) {
+            replace: true,
+            controller: ['$scope', '$location', 'Data', function($scope, $location, Data) {
 
                 $scope.menuList = Data.menu;
+                $scope.path = $location.$$path;
+
 
             }]
         };

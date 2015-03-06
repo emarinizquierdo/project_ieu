@@ -12,7 +12,9 @@
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400' rel='stylesheet' type='text/css'>
     <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/fonts.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
@@ -23,13 +25,14 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+    <div menu></div>
+    
     <div class="header">
-        <div menu></div>
-        <div id="app-title">titulo</div>
+        <div id="app-title">PASSAGE THROUGHT IEU</div>
     </div>
 
     <div class="container">
-        <div ng-view=""></div>
+        <div ng-view="" class="view-frame"></div>
     </div>
 
 
@@ -45,7 +48,6 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
     <script src="scripts/controllers/who.js"></script>
     <script src="scripts/controllers/what.js"></script>

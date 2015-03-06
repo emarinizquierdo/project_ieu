@@ -11,9 +11,13 @@ angular.module('projectIeuApp')
         return {
             templateUrl: 'partials/menu.html',
             restrict: 'A',
-            controller: ['$scope', 'Data', function($scope, Data) {
+            replace: true,
+            controller: ['$scope', 'Data', 'Lang', function($scope, Data, Lang) {
 
                 $scope.menuList = Data.menu;
+                $scope.info = Data.info;
+                $scope.currentLang = Lang.current;
+                $scope.set = Lang.set;
 
             }]
         };

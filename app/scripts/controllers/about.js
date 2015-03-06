@@ -8,10 +8,8 @@
  * Controller of the projectIeuApp
  */
 angular.module('projectIeuApp')
-  .controller('AboutCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('AboutCtrl', ['$scope', 'Data', function ($scope, Data) {
+    
+    $scope.data = Data.menu[0];
+
+  }]);

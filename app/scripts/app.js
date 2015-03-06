@@ -21,27 +21,27 @@ angular
 
     $routeProvider
       .when('/about', {
-        templateUrl: 'views/about.html',
+        templateUrl: 'views/sharedView.html',
         controller: 'AboutCtrl'
       })
       .when('/who', {
-        templateUrl: 'views/who.html',
+        templateUrl: 'views/sharedView.html',
         controller: 'WhoCtrl'
       })
       .when('/what', {
-        templateUrl: 'views/what.html',
+        templateUrl: 'views/sharedView.html',
         controller: 'WhatCtrl'
       })
       .when('/how', {
-        templateUrl: 'views/how.html',
+        templateUrl: 'views/sharedView.html',
         controller: 'HowCtrl'
       })
       .when('/where', {
-        templateUrl: 'views/where.html',
+        templateUrl: 'views/sharedView.html',
         controller: 'WhereCtrl'
       })
       .when('/info', {
-        templateUrl: 'views/info.html',
+        templateUrl: 'views/sharedView.html',
         controller: 'InfoCtrl'
       })
       .otherwise({

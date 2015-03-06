@@ -1,6 +1,27 @@
-<ul id="main-menu">
-    <li ng-repeat="item in menuList">
-    	<span class="menu-icon">icono</span>
-    	<a ng-href="{{item.path}}">{{ item.name }}</a>
-    </li>
-</ul>
+<div id="main-menu">
+
+    <ul class="first">
+        <a class="menu-{{item.icon}}" ng-repeat="item in menuList" ng-href="{{item.path}}">
+            <li>
+                <span class="menu-icons icon-{{item.icon}}"></span> {{ item.name }}
+                <ul class="submenu">
+                    <li ng-repeat="subitem in item.submenu">
+                        <span >{{ subitem.name }}</span>
+                    </li>
+                </ul>
+            </li>
+        </a>
+    </ul>
+
+    <ul class="second">
+        <a class="menu-{{info.icon}}">
+            <li>
+                <span class="menu-icons icon-{{info.icon}}"></span> {{ info.name }}
+            </li>
+        </a>
+        <li class="last">
+            <span class="lang-selector" ng-class="{'active' : (currentLang == 'en_EN')}" ng-click="set('en_EN')">ENG</span>-<span class="lang-selector" ng-class="{'active' : (currentLang == 'es_ES')}" ng-click="set('es_ES')">ESP</span>
+        </li>
+    </ul>
+
+</div>
