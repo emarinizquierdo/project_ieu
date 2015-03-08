@@ -3,7 +3,7 @@
     <ul class="first">
 
         <li class="menu-{{item.icon}}" ng-repeat="item in menuList" ng-click="toggleSubmenu($index)" ng-class="{'active' : isActive(item), clicked : item.clicked}">
-            <a ng-href="{{item.path}}" >
+            <a ng-href="{{item.path}}">
                 <div class="menu-wrapper">
                     <div class="menu-content">
                         <span class="menu-icons icon-{{item.icon}}"></span><span class="name">{{ item.name }}</span>
@@ -11,12 +11,14 @@
                     </div>
                 </div>
             </a>
-            <ul class="submenu {{item.icon}}">
-                <li ng-repeat="subitem in item.submenu">
-                    <a ng-href="{{subitem.path}}">
+            <ul class="submenu {{item.icon}}" ng-click="toggleMenu()">
+                <a ng-repeat="subitem in item.submenu" ng-href="{{subitem.path}}" ng-class="{'active' : isActive(subitem) }">
+                    <li >
+
                         <span>{{ subitem.name }}</span>
-                    </a>
-                </li>
+
+                    </li>
+                </a>
             </ul>
         </li>
 

@@ -135,6 +135,7 @@ a:active {
     left: 72px;
     top: 48px;
     padding: 20px;
+    box-sizing: border-box;
     text-align: left;
     border-bottom: none;
     list-style-type: none;
@@ -152,9 +153,10 @@ a:active {
     visibility: visible;
 }
 #main-menu .first li .submenu li {
-    height: 35px;
+    line-height: 30px;
     border-bottom: none;
     font-size: 12px;
+    height: auto;
 }
 #main-menu .second {
     position: absolute;
@@ -244,6 +246,16 @@ a:active {
     margin: auto;
     text-align: center;
 }
+.container .main-sentence-subsection {
+    margin: 80px 20px;
+    position: absolute;
+}
+.container .main-sentence-subsection span {
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    border-bottom: 2px solid #ffffff;
+}
 .container #breadcrumb {
     color: #ffffff;
     list-style-type: none;
@@ -300,24 +312,19 @@ a:active {
     -o-transition: color 100ms ease-in;
     transition: color 100ms ease-in;
 }
-#main-menu .first .menu-who:hover .icon-who, #main-menu .first .menu-who:hover .name,
-#main-menu .first .menu-who.active .icon-who, #main-menu .first .menu-who.active .name, #main-menu .first .menu-who .submenu a:hover {
+#main-menu .first .menu-who:hover .icon-who, #main-menu .first .menu-who:hover .name, #main-menu .first .menu-who.active .icon-who, #main-menu .first .menu-who.active .name, #main-menu .first .menu-who .submenu a:hover, #main-menu .first .menu-who .submenu a.active {
     color: #0d9b8c;
 }
-#main-menu .first .menu-where:hover .icon-where, #main-menu .first .menu-where:hover .name,
-#main-menu .first .menu-where.active .icon-where, #main-menu .first .menu-where.active .name, #main-menu .first .menu-where .submenu a:hover {
+#main-menu .first .menu-where:hover .icon-where, #main-menu .first .menu-where:hover .name, #main-menu .first .menu-where.active .icon-where, #main-menu .first .menu-where.active .name, #main-menu .first .menu-where .submenu a:hover, #main-menu .first .menu-who .submenu a.active {
     color: #e0a61a;
 }
-#main-menu .second .menu-info:hover .icon-info, #main-menu .second .menu-info:hover .name,
-#main-menu .second .menu-info.active .icon-info, #main-menu .second .menu-info.active .name, #main-menu .first .menu-info .submenu a:hover {
+#main-menu .second .menu-info:hover .icon-info, #main-menu .second .menu-info:hover .name, #main-menu .second .menu-info.active .icon-info, #main-menu .second .menu-info.active .name, #main-menu .first .menu-info .submenu a:hover, #main-menu .first .menu-info .submenu a.active {
     color: #1d5682;
 }
-#main-menu .first .menu-how:hover .icon-how, #main-menu .first .menu-how:hover .name,
-#main-menu .first .menu-how.active .icon-how, #main-menu .first .menu-how.active .name, #main-menu .first .menu-how .submenu a:hover {
+#main-menu .first .menu-how:hover .icon-how, #main-menu .first .menu-how:hover .name, #main-menu .first .menu-how.active .icon-how, #main-menu .first .menu-how.active .name, #main-menu .first .menu-how .submenu a:hover, #main-menu .first .menu-how .submenu a.active {
     color: #5f8320;
 }
-#main-menu .first .menu-what:hover .icon-what, #main-menu .first .menu-what:hover .name,
-#main-menu .first .menu-what.active .icon-what, #main-menu .first .menu-what.active .name, #main-menu .first .menu-what .submenu a:hover {
+#main-menu .first .menu-what:hover .icon-what, #main-menu .first .menu-what:hover .name, #main-menu .first .menu-what.active .icon-what, #main-menu .first .menu-what.active .name, #main-menu .first .menu-what .submenu a:hover, #main-menu .first .menu-what .submenu a.active {
     color: #f97500;
 }
 .footer {
@@ -401,7 +408,11 @@ a:active {
         min-width: initial;
         height: 0px;
         overflow: auto;
-
+        -webkit-transition: all .5s ease;
+        -moz-transition: all .5s ease;
+        -ms-transition: all .5s ease;
+        -o-transition: all .5s ease;
+        transition: all .5s ease;
     }
     #main-menu .menu-wrapper {
         display: table;
@@ -414,6 +425,11 @@ a:active {
     }
     #main-menu .first li {
         height: 52px;
+        -webkit-transition: all .5s ease;
+        -moz-transition: all .5s ease;
+        -ms-transition: all .5s ease;
+        -o-transition: all .5s ease;
+        transition: all .5s ease;
     }
     #main-menu .first li.clicked {
         height: auto;
@@ -426,11 +442,24 @@ a:active {
         top: initial;
         display: none;
         position: relative;
+        background-color: #222222;
+        padding: 0;
+        height: 0px;
+    }
+    #main-menu .first li .submenu li {
+        text-align: center;
+        font-weight: bold;
+        border-top: 2px solid #212121;
+        line-height: 52px;
+    }
+    #main-menu .first li .submenu li a {
+        color: #ffffff;
     }
     #main-menu .first li.clicked .submenu {
         display: block;
         visibility: visible;
         opacity: 1;
+        height: auto;
     }
     .diamond {
         top: 49px;
@@ -438,7 +467,12 @@ a:active {
         margin-left: auto;
         margin-right: auto;
     }
-
+    #main-menu .first li:hover .diamond {
+        opacity: 0;
+    }
+    #main-menu .first li.cliked .diamond {
+        opacity: 1;
+    }
     #main-menu .first .menu-icons, #main-menu .second .menu-icons {
         display: inline-block;
         padding-top: 0px;
@@ -508,6 +542,4 @@ a:active {
     .container #breadcrumb {
         display: none;
     }
-
-    
 }

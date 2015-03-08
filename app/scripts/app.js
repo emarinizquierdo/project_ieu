@@ -20,26 +20,15 @@ angular
     $locationProvider.html5Mode(true);
 
     $routeProvider
-      .when('/about', {
+      .when('/:main', {
         templateUrl: 'views/sharedView.html',
-        controller: 'AboutCtrl'
+        controller: 'MainCtrl'
       })
-      .when('/who', {
-        templateUrl: 'views/sharedView.html',
-        controller: 'WhoCtrl'
+      .when('/:main/:secundary', {
+        templateUrl: 'views/subcontentView.html',
+        controller: 'MainCtrl'
       })
-      .when('/what', {
-        templateUrl: 'views/sharedView.html',
-        controller: 'WhatCtrl'
-      })
-      .when('/how', {
-        templateUrl: 'views/sharedView.html',
-        controller: 'HowCtrl'
-      })
-      .when('/where', {
-        templateUrl: 'views/sharedView.html',
-        controller: 'WhereCtrl'
-      })
+      
       .when('/info', {
         templateUrl: 'views/sharedView.html',
         controller: 'InfoCtrl'

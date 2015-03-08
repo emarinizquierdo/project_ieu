@@ -20,7 +20,8 @@ angular.module('projectIeuApp')
                 $scope.set = Lang.set;
 
                 $scope.isActive = function( p_item ){
-                    return ($location.$$path == p_item.path);
+                    var _splitted = $location.$$path.split('/');
+                    return (_splitted[1] == p_item.path.substr(1) || $location.$$path == p_item.path );
                 }
 
                 $scope.toggleSubmenu = function( p_index ){
