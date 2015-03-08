@@ -12,6 +12,8 @@
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400' rel='stylesheet' type='text/css'>
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/fonts.css">
@@ -19,16 +21,25 @@
     <!-- endbuild -->
 </head>
 
-<body ng-app="projectIeuApp">
+<body ng-app="projectIeuApp" ng-controller="HeaderCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div menu></div>
-    
-    <div class="header">
-        <div id="app-title">PASSAGE THROUGHT IEU</div>
+    <div menu ng-class="{'active' : activeMenu}" ></div>
+
+    <div class="header" >
+        <div class="header-content">
+            <div id="app-title">PASSAGE THROUGHT IEU</div>
+            <div id="menu-button" ng-click="toggleMenu()">
+
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+
+            </div>
+        </div>
     </div>
 
     <div class="container">
@@ -58,6 +69,7 @@
     <script src="scripts/services/lang.js"></script>
     <script src="scripts/services/data.js"></script>
     <script src="scripts/directives/breadcrumb.js"></script>
+    <script src="scripts/controllers/header.js"></script>
     <!-- endbuild -->
 </body>
 

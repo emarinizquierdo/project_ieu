@@ -2,6 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 /* Everything but the jumbotron gets side spacing for mobile first views */
 
@@ -37,6 +38,59 @@ a:active {
 .header, .marketing, .footer {}
 /* Menu */
 
+.header {
+    display: table;
+    width: calc(100% - 96px);
+    z-index: 99999999;
+    right: 0;
+    height: 58px;
+    background-color: #ffffff;
+    opacity: 0.83;
+    position: fixed;
+}
+.header .header-content {
+    display: table-cell;
+    vertical-align: middle;
+}
+.header #app-title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1d5682;
+    width: 100%;
+    box-sizing: padding-box;
+}
+.header #menu-button {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    display: none;
+}
+.icon-bar {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background-color: #1d5682;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    margin-bottom: 2px;
+}
+#main-menu {
+    float: left;
+    min-width: 96px;
+    max-width: 96px;
+}
+.container {
+    float: left;
+    width: calc(100% - 96px);
+}
+/* Remove the padding we set earlier */
+
+.header, .marketing, .footer {
+    padding-left: 0;
+    padding-right: 0;
+}
 #main-menu {
     height: 100%;
     font-size: 12px;
@@ -53,47 +107,55 @@ a:active {
 }
 #main-menu .first li {
     height: 104px;
-    border-bottom: 1px solid #212121;
+    border-bottom: 2px solid #212121;
     text-transform: uppercase;
+    position: relative;
+}
+#main-menu .menu-wrapper {
+    display: table;
+    width: 100%;
+    text-align: center;
+}
+#main-menu .menu-content {
+    display: table-row;
+    vertical-align: middle;
 }
 #main-menu .first li .menu-icon {
     display: block;
 }
-
 #main-menu .first li:hover .submenu {
-  opacity: 1;
-  visibility: visible;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: .5s;
 }
-
 #main-menu .first li .submenu {
+    z-index: 9999999;
     background-color: #cccccc;
     position: absolute;
-    left: 96px;
-    top: 58px;
+    left: 72px;
+    top: 48px;
     padding: 20px;
     text-align: left;
     border-bottom: none;
     list-style-type: none;
     min-width: 200px;
+    visibility: hidden;
     opacity: 0;
-      -webkit-transition: all .25s ease;
--moz-transition: all .25s ease;
--ms-transition: all .25s ease;
--o-transition: all .25s ease;
-transition: all .25s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
 }
-
 #main-menu .first .submenu:hover {
-  opacity:1;
-  visibility: visible;
+    opacity: 1;
+    visibility: visible;
 }
-
-#main-menu .first li .submenu li{
+#main-menu .first li .submenu li {
     height: 35px;
     border-bottom: none;
     font-size: 12px;
-  }
-
+}
 #main-menu .second {
     position: absolute;
     bottom: 0;
@@ -119,6 +181,39 @@ transition: all .25s ease;
 #main-menu .second .lang-selector.active {
     color: #ffffff;
 }
+.diamond {
+    width: 12px;
+    height: 12px;
+    background: #508895;
+    z-index: 9999999999;
+    position: absolute;
+    right: -12px;
+    top: 64px;
+    opacity: 0;
+    /* Rotate */
+    
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    /* Rotate Origin */
+    
+    -webkit-transform-origin: 0 100%;
+    -moz-transform-origin: 0 100%;
+    -ms-transform-origin: 0 100%;
+    -o-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    -webkit-transition: opacity .5s ease;
+    -moz-transition: opacity .5s ease;
+    -ms-transition: opacity .5s ease;
+    -o-transition: opacity .5s ease;
+    transition: opacity .5s ease;
+}
+#main-menu .first li:hover .diamond {
+    opacity: 1;
+    transition-delay: .5s;
+}
 /* Container */
 
 .container {
@@ -128,6 +223,7 @@ transition: all .25s ease;
 .container .background-image {
     position: fixed;
     top: 0;
+    max-width: none;
     min-height: 100%;
     min-width: 100%;
     z-index: -999999;
@@ -137,6 +233,7 @@ transition: all .25s ease;
     bottom: 190px;
     width: 100%;
     text-align: center;
+    line-height: 44px;
 }
 .container .main-sentence .content {
     color: #ffffff;
@@ -203,19 +300,24 @@ transition: all .25s ease;
     -o-transition: color 100ms ease-in;
     transition: color 100ms ease-in;
 }
-#main-menu .first .menu-who:hover .icon-who, #main-menu .first .menu-who:hover {
+#main-menu .first .menu-who:hover .icon-who, #main-menu .first .menu-who:hover .name,
+#main-menu .first .menu-who.active .icon-who, #main-menu .first .menu-who.active .name, #main-menu .first .menu-who .submenu a:hover {
     color: #0d9b8c;
 }
-#main-menu .first .menu-where:hover .icon-where, #main-menu .first .menu-where:hover {
+#main-menu .first .menu-where:hover .icon-where, #main-menu .first .menu-where:hover .name,
+#main-menu .first .menu-where.active .icon-where, #main-menu .first .menu-where.active .name, #main-menu .first .menu-where .submenu a:hover {
     color: #e0a61a;
 }
-#main-menu .second .menu-info:hover .icon-info, #main-menu .second .menu-info:hover {
+#main-menu .second .menu-info:hover .icon-info, #main-menu .second .menu-info:hover .name,
+#main-menu .second .menu-info.active .icon-info, #main-menu .second .menu-info.active .name, #main-menu .first .menu-info .submenu a:hover {
     color: #1d5682;
 }
-#main-menu .first .menu-how:hover .icon-how, #main-menu .first .menu-how:hover {
+#main-menu .first .menu-how:hover .icon-how, #main-menu .first .menu-how:hover .name,
+#main-menu .first .menu-how.active .icon-how, #main-menu .first .menu-how.active .name, #main-menu .first .menu-how .submenu a:hover {
     color: #5f8320;
 }
-#main-menu .first .menu-what:hover .icon-what, #main-menu .first .menu-what:hover {
+#main-menu .first .menu-what:hover .icon-what, #main-menu .first .menu-what:hover .name,
+#main-menu .first .menu-what.active .icon-what, #main-menu .first .menu-what.active .name, #main-menu .first .menu-what .submenu a:hover {
     color: #f97500;
 }
 .footer {
@@ -284,42 +386,128 @@ transition: all .25s ease;
 }
 /* don't forget about the vendor-prefixes! */
 /* Responsive: Portrait tablets and up */
+/* Smartphones (portrait and landscape) ----------- */
 
-@media screen and (min-width: 768px) {
-    .header {} .header #app-title {
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-        color: #1d5682;
+@media only screen and (min-width: 320px) and (max-width: 580px) {
+    /* Styles */
+    
+    #main-menu {
+        position: fixed;
         width: 100%;
+        margin-top: 54px;
+        z-index: 99999;
+        float: none;
+        max-width: none;
+        min-width: initial;
+        height: 0px;
+        overflow: auto;
+
+    }
+    #main-menu .menu-wrapper {
+        display: table;
+        width: 100%;
+        text-align: center;
+        height: 52px;
+    }
+    #main-menu .first {
+        padding-top: 0px;
+    }
+    #main-menu .first li {
+        height: 52px;
+    }
+    #main-menu .first li.clicked {
+        height: auto;
+    }
+    #main-menu .first li .submenu {
+        width: 100%;
+        left: 0px;
+        margin-left: 0px;
+        margin-top: 0px;
+        top: initial;
+        display: none;
+        position: relative;
+    }
+    #main-menu .first li.clicked .submenu {
+        display: block;
+        visibility: visible;
+        opacity: 1;
+    }
+    .diamond {
+        top: 49px;
+        left: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #main-menu .first .menu-icons, #main-menu .second .menu-icons {
+        display: inline-block;
+        padding-top: 0px;
+        font-size: 32px;
+    }
+    #main-menu .first .menu-content .menu-icons, #main-menu .first .menu-content .name {
+        display: table-cell;
+        vertical-align: middle;
+        width: 50%;
+    }
+    #main-menu .first .menu-content .menu-icons {
+        text-align: right;
+        padding-right: 5px;
+    }
+    #main-menu .first .menu-content .name {
+        text-align: left;
+        padding-left: 5px;
+    }
+    #main-menu.active {
+        height: 100%;
+    }
+    .header #menu-button {
+        display: block;
+        cursor: pointer;
+    }
+    .header #menu-button.active {
+        display: block;
+        cursor: pointer;
+    }
+    .header {
+        width: 100%;
+        font-size: 13px;
+        height: 54px;
+        vertical-align: middle;
         background-color: #ffffff;
         opacity: 0.83;
-        box-sizing: padding-box;
-        width: calc(100% - 96px);
-        z-index: 99999999;
-        height: 58px;
-        position: absolute;
-        right: 0;
+        position: fixed;
     }
-    #main-menu {
-        float: left;
-        min-width: 96px;
-        max-width: 96px;
+    .header #app-title {
+        width: 100%;
+        font-size: 14px;
     }
     .container {
-        float: left;
-        width: calc(100% - 96px);
+        width: 100%;
     }
-    /* Remove the padding we set earlier */
+    .container .background-image {
+        max-height: 100%;
+    }
+    .container .main-sentence {
+        position: absolute;
+        bottom: 30px;
+        width: 100%;
+        text-align: center;
+    }
+    .container .main-sentence .content {
+        font-size: 16px;
+        background: #232323;
+        opacity: 0.9;
+        margin: auto;
+        width: 100%;
+        padding: 28px 18px;
+        box-sizing: border-box;
+    }
+    .container .main-sentence .content {
+        color: #008f96;
+    }
+    .container #breadcrumb {
+        display: none;
+    }
+
     
-    .header, .marketing, .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    /* Space out the masthead */
-    /* Remove the bottom border on the jumbotron for visual effect */
-    
-    .jumbotron {
-        border-bottom: 0;
-    }
 }

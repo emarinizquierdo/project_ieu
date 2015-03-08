@@ -1,16 +1,25 @@
 <div id="main-menu">
 
     <ul class="first">
-        <a class="menu-{{item.icon}}" ng-repeat="item in menuList" ng-href="{{item.path}}">
-            <li>
-                <span class="menu-icons icon-{{item.icon}}"></span> {{ item.name }}
-                <ul class="submenu">
-                    <li ng-repeat="subitem in item.submenu">
-                        <span >{{ subitem.name }}</span>
-                    </li>
-                </ul>
-            </li>
-        </a>
+
+        <li class="menu-{{item.icon}}" ng-repeat="item in menuList" ng-click="toggleSubmenu($index)" ng-class="{'active' : isActive(item), clicked : item.clicked}">
+            <a ng-href="{{item.path}}" >
+                <div class="menu-wrapper">
+                    <div class="menu-content">
+                        <span class="menu-icons icon-{{item.icon}}"></span><span class="name">{{ item.name }}</span>
+                        <span class="diamond"></span>
+                    </div>
+                </div>
+            </a>
+            <ul class="submenu {{item.icon}}">
+                <li ng-repeat="subitem in item.submenu">
+                    <a ng-href="{{subitem.path}}">
+                        <span>{{ subitem.name }}</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
     </ul>
 
     <ul class="second">
